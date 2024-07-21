@@ -25,6 +25,7 @@ const ConnectionsGame = () => {
   }, [incorrectGuesses]);
 
   const handleItemClick = (item) => {
+    if (correctItems.has(item)) return;
     if (selectedItems.includes(item)) {
       setSelectedItems(selectedItems.filter(selected => selected !== item));
     } else {
