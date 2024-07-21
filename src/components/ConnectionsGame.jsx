@@ -11,12 +11,12 @@ const shuffleArray = (array) => {
 };
 
 const INITIAL_ITEMS = [
-  { id: 1, name: 'Denver', category: 'Location' },
-  { id: 2, name: 'Jim Thorpe', category: 'Location' },
-  { id: 3, name: 'Fort Lauderdale', category: 'Location' },
-  { id: 4, name: 'Coconut Water', category: 'Drink' },
-  { id: 5, name: 'Surfside', category: 'Drink' },
-  { id: 6, name: 'Smoothie', category: 'Drink' },
+  { id: 1, name: '', category: 'Location' },
+  { id: 2, name: ' ', category: 'Location' },
+  { id: 3, name: ' ', category: 'Location' },
+  { id: 4, name: ' ', category: 'Drink' },
+  { id: 5, name: '', category: 'Drink' },
+  { id: 6, name: '', category: 'Drink' },
   { id: 7, name: '', category: '' },
   { id: 8, name: '', category: '' },
   { id: 9, name: '', category: '' },
