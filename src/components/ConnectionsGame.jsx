@@ -12,7 +12,6 @@ const ITEMS = [
   { id: 9, name: 'Lion', category: 'Animal' },
 ];
 
-
 const ConnectionsGame = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [message, setMessage] = useState('');
@@ -60,8 +59,7 @@ const ConnectionsGame = () => {
             key={item.id}
             onClick={() => handleItemClick(item)}
             className={`p-4 border rounded cursor-pointer
-              ${correctItems.has(item) ? 'bg-green-500 text-white' : 'bg-white'}
-              ${selectedItems.includes(item) && !correctItems.has(item) ? 'bg-blue-300' : ''}
+              ${correctItems.has(item) ? 'bg-green-500 text-white' : selectedItems.includes(item) ? 'bg-gray-300' : 'bg-white'}
               ${selectedItems.includes(item) || correctItems.has(item) ? 'border-blue-500' : 'border-gray-300'}
             `}
           >
