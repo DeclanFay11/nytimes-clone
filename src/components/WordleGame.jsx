@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-const WORDS = ['REACT', 'HOOKS', 'STATE', 'PROPS', 'REDUX'];
+const WORDS = ['SWEET', 'ANGEL', 'QUEEN'];
 const MAX_ATTEMPTS = 6;
 const KEYBOARD_LETTERS = [
   ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],

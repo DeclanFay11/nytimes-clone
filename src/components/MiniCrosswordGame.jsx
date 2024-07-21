@@ -21,7 +21,7 @@ const answers = [
 const clues = {
   across: [
     { number: 1, clue: 'A fruit', answer: 'APPLE', row: 0, col: 0 },
-    { number: 1, clue: 'A person', answer: 'BOY', row: 1, col: 2 }
+    { number: 2, clue: 'A person', answer: 'BOY', row: 1, col: 2 }
   ],
   down: [
     // Add down clues here if needed

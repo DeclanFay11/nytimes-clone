@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
-const ITEMS = [
-  { id: 1, name: 'Apple', category: 'Fruit' },
-  { id: 2, name: 'Banana', category: 'Fruit' },
-  { id: 3, name: 'Carrot', category: 'Vegetable' },
-  { id: 4, name: 'Broccoli', category: 'Vegetable' },
-  { id: 5, name: 'Lion', category: 'Animal' },
-  { id: 6, name: 'Tiger', category: 'Animal' },
-  { id: 7, name: 'Banana', category: 'Fruit' },
-  { id: 8, name: 'Broccoli', category: 'Vegetable' },
-  { id: 9, name: 'Lion', category: 'Animal' },
+// Utility function to shuffle an array
+const shuffleArray = (array) => {
+  let shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
+
+const INITIAL_ITEMS = [
+  { id: 1, name: 'Denver', category: 'Location' },
+  { id: 2, name: 'Jim Thorpe', category: 'Location' },
+  { id: 3, name: 'Fort Lauderdale', category: 'Location' },
+  { id: 4, name: 'Coconut Water', category: 'Drink' },
+  { id: 5, name: 'Surfside', category: 'Drink' },
+  { id: 6, name: 'Smoothie', category: 'Drink' },
+  { id: 7, name: '', category: '' },
+  { id: 8, name: '', category: '' },
+  { id: 9, name: '', category: '' },
 ];
 
 const ConnectionsGame = () => {
+  const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [message, setMessage] = useState('');
   const [incorrectGuesses, setIncorrectGuesses] = useState(0);
   const [correctItems, setCorrectItems] = useState(new Set());
+
+  useEffect(() => {
+    // Shuffle items when the component mounts
+    setItems(shuffleArray(INITIAL_ITEMS));
+  }, []);
 
   useEffect(() => {
     if (incorrectGuesses >= 4) {
@@ -55,7 +71,7 @@ const ConnectionsGame = () => {
     <div className="max-w-lg mx-auto mt-8 p-4">
       <h1 className="text-3xl font-bold text-center mb-6">Connections Game</h1>
       <div className="grid grid-cols-3 gap-4 mb-4">
-        {ITEMS.map((item) => (
+        {items.map((item) => (
           <div
             key={item.id}
             onClick={() => handleItemClick(item)}
