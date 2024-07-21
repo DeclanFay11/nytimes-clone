@@ -88,8 +88,8 @@ const WordleGame = () => {
   }, [handleKeyDown]);
 
   const getLetterColor = (letter, index, guess) => {
-    if (guess[index] === targetWord[index]) return 'bg-green-500';
-    if (targetWord.includes(guess[index])) return 'bg-yellow-500';
+    if (targetWord[index] === letter) return 'bg-green-500';
+    if (targetWord.includes(letter)) return 'bg-yellow-500';
     return 'bg-gray-500';
   };
 
@@ -99,8 +99,8 @@ const WordleGame = () => {
       <div
         key={index}
         className={`w-14 h-14 border-2 flex items-center justify-center text-2xl font-bold
-          ${attemptIndex < attemptNumber ? getLetterColor(letter, index, guess) : 'border-gray-300'}
-          ${letter !== ' ' ? (attemptIndex < attemptNumber ? 'text-white' : 'text-black') : ''}
+          ${attemptIndex < attemptNumber || gameOver ? getLetterColor(letter, index, guess) : 'border-gray-300'}
+          ${letter !== ' ' ? (attemptIndex < attemptNumber || gameOver ? 'text-white' : 'text-black') : ''}
         `}
       >
         {letter !== ' ' ? letter : ''}
@@ -124,7 +124,7 @@ const WordleGame = () => {
       <div className="grid grid-rows-6 gap-2 mb-4">
         {guesses.map((guess, index) => (
           <div key={index} className="flex justify-center gap-2">
-            {renderGuess(index === attemptNumber ? currentGuess : guess, index)}
+            {renderGuess(index === attemptNumber && !gameOver ? currentGuess : guess, index)}
           </div>
         ))}
       </div>
