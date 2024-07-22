@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { WORDS } from './Answers';
 
-const WORDS = ['', '', ''];
 const MAX_ATTEMPTS = 6;
 const KEYBOARD_LETTERS = [
   ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -120,7 +120,7 @@ const WordleGame = () => {
 
   return (
     <div className="max-w-lg mx-auto mt-8 p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">Wordle Clone</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Wordle</h1>
       <div className="grid grid-rows-6 gap-2 mb-4">
         {guesses.map((guess, index) => (
           <div key={index} className="flex justify-center gap-2">

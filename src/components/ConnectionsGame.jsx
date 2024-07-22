@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { INITIAL_ITEMS } from './Answers';
 
 // Utility function to shuffle an array
 const shuffleArray = (array) => {
@@ -9,18 +10,6 @@ const shuffleArray = (array) => {
   }
   return shuffledArray;
 };
-
-const INITIAL_ITEMS = [
-  { id: 1, name: '', category: 'Location' },
-  { id: 2, name: ' ', category: 'Location' },
-  { id: 3, name: ' ', category: 'Location' },
-  { id: 4, name: ' ', category: 'Drink' },
-  { id: 5, name: '', category: 'Drink' },
-  { id: 6, name: '', category: 'Drink' },
-  { id: 7, name: '', category: '' },
-  { id: 8, name: '', category: '' },
-  { id: 9, name: '', category: '' },
-];
 
 const ConnectionsGame = () => {
   const [items, setItems] = useState([]);
@@ -57,7 +46,7 @@ const ConnectionsGame = () => {
 
     const categories = selectedItems.map(item => item.category);
     if (categories.every(category => category === categories[0])) {
-      setMessage('Correct! All items are related.');
+      setMessage(`Correct! All items are related to ${categories[0]}.`);
       setCorrectItems(new Set([...correctItems, ...selectedItems]));
     } else {
       setMessage('Incorrect! Try again.');
